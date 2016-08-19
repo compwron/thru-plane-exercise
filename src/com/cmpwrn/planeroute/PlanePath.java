@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class PlanePath {
     private String planeName;
@@ -24,12 +25,11 @@ public class PlanePath {
     }
 
     private List<LocationTimes> extractTimes(String line) {
-        Arrays.asList(line.split(",")).stream()
+        return Arrays.asList(line.split(",")).stream()
                 .filter((chunk) -> {
                     return chunk.trim().split(" ").length == 3;
                 }).map((chunk) -> {
             return new LocationTimes(chunk);
-        });
-        return null;
+        }).collect(Collectors.toList());
     }
 }

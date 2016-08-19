@@ -1,6 +1,7 @@
 package com.cmpwrn.planeroute;
 
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class LocationTimes {
     private final LocalTime arrivalTime;
@@ -8,10 +9,11 @@ public class LocationTimes {
     private final LocalTime departureTime;
 
     public LocationTimes(String chunk) {
-        String[] pieces = chunk.split(" ");
-        arrivalTime = LocalTime.parse(pieces[0]);
-        location = Location.valueOf(pieces[1]);
-        departureTime = LocalTime.parse(pieces[2]);
+        String[] pieces = chunk.trim().split(" ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
 
+        arrivalTime = LocalTime.parse(pieces[0], formatter);
+        location = Location.valueOf(pieces[1]);
+        departureTime = LocalTime.parse(pieces[2], formatter);
     }
 }
