@@ -1,0 +1,35 @@
+package com.cmpwrn.planeroute;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class PlanePath {
+    private String planeName;
+    private final List<LocationTimes> locationTimes;
+
+    public PlanePath(String line) {
+//        PL2, 0010 B 0050,0110 A 0230, 0400 C 0440
+        planeName = planeName(line);
+        locationTimes = extractTimes(line);
+    }
+
+    private String planeName(String line) {
+        Pattern pattern = Pattern.compile("(PL\\d+),.*");
+        Matcher matcher = pattern.matcher(line);
+        matcher.matches();
+
+        return matcher.group(1);
+    }
+
+    private List<LocationTimes> extractTimes(String line) {
+        Arrays.asList(line.split(",")).stream()
+                .filter((chunk) -> {
+                    return chunk.trim().split(" ").length == 3;
+                }).map((chunk) -> {
+            return new LocationTimes(chunk);
+        });
+        return null;
+    }
+}
