@@ -3,12 +3,12 @@ package com.cmpwrn.planeroute;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-public class LocationTimes {
+public class LocationTime {
     private final LocalTime arrivalTime;
     private final Location location;
     private final LocalTime departureTime;
 
-    public LocationTimes(String chunk) {
+    public LocationTime(String chunk) {
         String[] pieces = chunk.trim().split(" ");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HHmm");
 
