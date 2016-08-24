@@ -1,4 +1,4 @@
-## <plane ID>, <arrive at location> <location> <depart location>, <arrive at location> <location> <depart location> ...
+## <plane ID> <plane capacity>, <arrive at location> <location> <depart location>, <arrive at location> <location> <depart location> ...
 
-PL1, 0010 A 0050,0200 B 0230, 0400 C 0440
-PL2, 0010 B 0050,0110 A 0230, 0400 C 0440
+PL1 175, 0010 A 0050,0200 B 0230, 0400 C 0440
+PL2 20, 0010 B 0050,0110 A 0230, 0400 C 0440

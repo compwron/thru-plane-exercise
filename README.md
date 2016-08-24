@@ -15,3 +15,6 @@ todo:
 - parse people file
 - given a plane set, report whther each person will be able to make their travel
 - given a people file, report what plane sets are needed (part 2: include times)
+
+- estimate whether planes are full
+- inject delays into the system and prompt rebooking
